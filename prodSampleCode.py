@@ -22,7 +22,7 @@ top_10_most_blocks = df.sort_values(by=["BLK"], ascending=False).head(10)
 top_10_highest_fp = df.sort_values(by=["FantasyPoints"], ascending=False).head(10)
 top_10_most_mp = df.sort_values(by=["MP"], ascending=False).head(10)
 
-# using seaborn to plot bar graph for top 10 players with highest PTS
+# using seaborn to plot bar graph for top 10 players with highest suggested fantasy points
 sns.set(style="whitegrid")
 ax = sns.barplot(x="Suggested_FantasyPoints", y="Player", data=top_10_players)
 plt.title("Top 10 Players with Highest Fantasy Points in Playoffs")
@@ -30,7 +30,7 @@ plt.xlabel("Points")
 plt.ylabel("Player")
 
 
-# include PTS in each bar
+# include suggested fantasy points in each bar
 for p in ax.patches:
     width = p.get_width()
     plt.text(
