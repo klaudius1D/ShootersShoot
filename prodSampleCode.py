@@ -8,6 +8,9 @@ df = pd.read_csv("topPicksCSV/Playoffs-Master-CombinedLR_topPicks.csv")
 # sort by suggested_fantasypoints_rank
 df = df.sort_values(by=["Suggested_FantasyPoints_Rank"], ascending=True)
 
+# find player
+player_search = df[df["Player"].str.contains("lebron", case=False)]
+
 # find top 10 players  on all columns
 top_10_players = df.head(10)
 top_10_scorers = df.sort_values(by=["PTS"], ascending=False).head(10)
