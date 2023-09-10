@@ -12,15 +12,9 @@ df = df.sort_values(by=["Suggested_FantasyPoints_Rank"], ascending=True)
 player_search = df[df["Player"].str.contains("Shai Gilgeous-Alexander", case=False)]
 
 # find top 10 players  on all columns
-top_10_players = df.head(10)
-top_10_scorers = df.sort_values(by=["PTS"], ascending=False).head(10)
-top_10_rebounders = df.sort_values(by=["TRB"], ascending=False).head(10)
-top_10_most_assists = df.sort_values(by=["AST"], ascending=False).head(10)
-top_10_most_steals = df.sort_values(by=["STL"], ascending=False).head(10)
-top_10_most_tov = df.sort_values(by=["TOV"], ascending=False).head(10)
-top_10_most_blocks = df.sort_values(by=["BLK"], ascending=False).head(10)
-top_10_highest_fp = df.sort_values(by=["FantasyPoints"], ascending=False).head(10)
-top_10_most_mp = df.sort_values(by=["MP"], ascending=False).head(10)
+columns_to_show = ["PTS", "TRB", "AST", "STL", "TOV", "BLK", "FantasyPoints", "MP"]
+for column in columns_to_show:
+    print(df.sort_values(by=[column], ascending=False).head(10)[["Player", column]])
 
 # using seaborn to plot bar graph for top 10 players with highest suggested fantasy points
 sns.set(style="whitegrid")
