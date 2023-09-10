@@ -16,13 +16,13 @@ columns_to_show = ["PTS", "TRB", "AST", "STL", "TOV", "BLK", "FantasyPoints", "M
 for column in columns_to_show:
     print(df.sort_values(by=[column], ascending=False).head(10)[["Player", column]])
 
+
 # using seaborn to plot bar graph for top 10 players with highest suggested fantasy points
 sns.set(style="whitegrid")
-ax = sns.barplot(x="Suggested_FantasyPoints", y="Player", data=top_10_players)
+ax = sns.barplot(x="Suggested_FantasyPoints", y="Player", data=df.head(10))
 plt.title("Top 10 Players with Highest Fantasy Points in Playoffs")
 plt.xlabel("Points")
 plt.ylabel("Player")
-
 
 # include suggested fantasy points in each bar
 for p in ax.patches:
